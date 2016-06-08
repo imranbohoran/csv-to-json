@@ -26,6 +26,7 @@ public class CSVToJsonTransformer {
         CsvSchema schema = getCsvSchema(transformOptions);
 
         String jsonString = "";
+        System.out.println("Transforming...");
         try {
             ObjectReader objectReader = mapper.reader(HashMap.class).with(schema);
 
@@ -42,6 +43,7 @@ public class CSVToJsonTransformer {
         CsvSchema schema = getCsvSchema(transformOptions);
 
         String jsonString = "";
+        System.out.println("Transforming from file..");
         try {
             ObjectReader objectReader = mapper.reader(HashMap.class).with(schema);
 
