@@ -61,6 +61,7 @@ public class CSVToJsonTransformer {
     }
 
     private String getJsonString(MappingIterator<Map<String,String>> it) {
+        System.out.println("Getting JSON String...");
         StringBuilder jsonString = new StringBuilder();
         while (it.hasNext()) {
             try {
