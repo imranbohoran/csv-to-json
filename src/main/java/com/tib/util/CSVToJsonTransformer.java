@@ -47,6 +47,7 @@ public class CSVToJsonTransformer {
         try {
             ObjectReader objectReader = mapper.reader(HashMap.class).with(schema);
 
+            
             MappingIterator<Map<String, String>> it = objectReader.readValues(csvFile);
             jsonString = getJsonString(it);
         } catch (IOException e) {
