@@ -3,3 +3,5 @@ rc.tag=release-45
 rc.date=10/06/2016
 
 stage.tag=staging-45
+
+stage.date=10/06/2016
