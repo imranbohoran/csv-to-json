@@ -3,3 +3,5 @@
 prod.tag=production-45
 
 prod.date=10/06/2016
+
+prod.status=success
