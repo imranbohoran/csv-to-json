@@ -5,3 +5,5 @@ release.release-47.date=10/06/2016
 staging.tag=staging-47
 
 staging.staging-47.date=10/06/2016
+
+staging.staging-47.status=success
