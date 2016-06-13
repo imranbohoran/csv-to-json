@@ -1,9 +1,1 @@
-rc.tag=release-47
-
-rc.date=10/06/2016
-
-stage.tag=staging-47
-
-stage.date=10/06/2016
-
-stage.status=success
+release.tag=release-47
