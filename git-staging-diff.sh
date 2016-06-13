@@ -6,7 +6,7 @@ echo "Current staging tag is ${STAGING_TAG}"
 CURRENT_STAG_COMMIT=$(git rev-list -n 1 ${STAGING_TAG})
 echo "Current staging commit is ${CURRENT_STAG_COMMIT}"
 
-CURRENT_STAG_RC_TAG=$(git notes show ${CURRENT_STAG_COMMIT} | grep rc.tag | cut -d " " -f 1 | cut -d"=" -f 2)
+CURRENT_STAG_RC_TAG=$(git notes show ${CURRENT_STAG_COMMIT} | grep release.tag | cut -d " " -f 1 | cut -d"=" -f 2)
 echo "Current staging release tag ${CURRENT_STAG_RC_TAG}"
 
 LATEST_RELEASE_TAG=$(git describe --abbrev=0 --match "release-*")
@@ -15,7 +15,12 @@ echo "Latest release tag ${LATEST_RELEASE_TAG}"
 COMMITS_SINCE_LAST_STAG=$(git rev-list --merges --tags=release ${CURRENT_STAG_RC_TAG}..${LATEST_RELEASE_TAG})
 echo "Commits since last staging ${COMMITS_SINCE_LAST_STAG}"
 
-echo "Available release candidates"
+echo ""
+echo ""
+echo ""
+
+echo ">>>>>> Available release candidates for staging <<<<<<<"
+echo ""
 
 for commit in ${COMMITS_SINCE_LAST_STAG};
 do
