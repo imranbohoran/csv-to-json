@@ -2,7 +2,8 @@
 
 JOB_URL=$1
 echo "Job url is ${JOB_URL}"
-JOB_STATUS_URL=${JOB_URL}/lastBuild/api/json
+JOB_STATUS_URL=http://localhost:8080/job/Deploy%20to%20Staging/lastBuild/api/json
+
 echo "Job status url is ${JOB_STATUS_URL}"
 
 RELEASE_CANDIDATE_TAG=$2
