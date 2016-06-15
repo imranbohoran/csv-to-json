@@ -9,8 +9,12 @@ RELEASE_CANDIDATE_TAG=$2
 echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 
 JOB_DETAILS=$(curl --silent ${JOB_STATUS_URL})
-echo ${JOB_DETAILS} | grep '"result":"SUCCESS"' > /dev/null
+echo ${JOB_DETAILS}
+
+BUILD_STATUS_RESULT=$(echo ${JOB_DETAILS} | grep '"result":"SUCCESS"')
 BUILD_STATUS_CODE=$?
+
+echo ${BUILD_STATUS_RESULT}
 
 echo "The build status is ${BUILD_STATUS_CODE}"
 if [[ ${BUILD_STATUS_CODE} -eq 0 ]];
