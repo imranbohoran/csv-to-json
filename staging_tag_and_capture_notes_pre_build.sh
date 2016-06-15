@@ -28,4 +28,5 @@ git notes merge -v origin/commits
 git notes append -m "stage.tag=${TAG_NAME}" ${COMMIT_FOR_RELEASE_CANDIDATE}
 git notes append -m "stage.${TAG_NAME}.date=${DATE}" ${COMMIT_FOR_RELEASE_CANDIDATE}
 
+git push origin refs/notes/commits
 git push origin "refs/notes/*"

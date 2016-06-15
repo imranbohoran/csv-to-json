@@ -25,7 +25,7 @@ COMMIT_FOR_CURRENT_STAGING=$(git rev-list -n 1 ${CURRENT_STAGING_TAG})
 echo "Commit for release candidate ${COMMIT_FOR_CURRENT_STAGING}"
 
 echo "Appending notes"
-git pull --rebase origin master
+git checkout master
 git fetch origin refs/notes/*:refs/notes/*
 git notes merge -v origin/commits
 

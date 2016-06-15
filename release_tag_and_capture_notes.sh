@@ -27,4 +27,5 @@ echo "Adding notes"
 git notes add -f -m "release.tag=${TAG_NAME}" ${LATEST_COMMIT}
 git notes append -m "release.${TAG_NAME}.date=${DATE}" ${LATEST_COMMIT}
 
+git push origin refs/notes/commits
 git push origin "refs/notes/*"
