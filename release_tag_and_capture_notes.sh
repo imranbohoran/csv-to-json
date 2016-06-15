@@ -28,7 +28,7 @@ WORKING_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "The current working branch ${WORKING_BRANCH}"
 
 git tag -a ${TAG_NAME} ${LATEST_COMMIT} -m "Release candidate tag created on ${DATE}"
-git push --follow-tags
+git push git@github.com:imranbohoran/csv-to-json.git --follow-tags
 
 echo "Adding notes"
 git notes add -f -m "release.tag=${TAG_NAME}"
