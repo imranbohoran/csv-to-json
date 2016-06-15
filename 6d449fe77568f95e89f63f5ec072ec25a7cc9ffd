@@ -5,3 +5,5 @@ release.release-83.date=2016-06-15:16:14:59
 stage.tag=staging-58
 
 stage.staging-58.date=2016-06-15:16:15:55
+
+stage.staging-58.status=success
