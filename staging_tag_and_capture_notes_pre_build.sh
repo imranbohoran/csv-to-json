@@ -21,6 +21,7 @@ git tag -a ${TAG_NAME} ${COMMIT_FOR_RELEASE_CANDIDATE} -m "Staging tag created o
 git push origin ${TAG_NAME}
 
 echo "Adding notes"
+git pull origin master
 git fetch origin refs/notes/*:refs/notes/*
 
 git notes append -m "stage.tag=${TAG_NAME}" ${COMMIT_FOR_RELEASE_CANDIDATE}
