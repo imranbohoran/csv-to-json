@@ -8,7 +8,8 @@ echo "Job status url is ${JOB_STATUS_URL}"
 RELEASE_CANDIDATE_TAG=$2
 echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 
-curl --silent ${JOB_STATUS_URL} | grep '"result":"SUCCESS"' > /dev/null
+JOB_DETAILS=$(curl --silent ${JOB_STATUS_URL})
+echo ${JOB_DETAILS} | grep '"result":"SUCCESS"' > /dev/null
 BUILD_STATUS_CODE=$?
 
 echo "The build status is ${BUILD_STATUS_CODE}"
@@ -29,7 +30,7 @@ git checkout master
 git pull --rebase
 git fetch origin refs/notes/*:refs/notes/*
 
-git notes append -m "stage.${CURRENT_STAGING_TAG}.date=${BUILD_STATUS}" ${COMMIT_FOR_CURRENT_STAGING}
+git notes append -m "stage.${CURRENT_STAGING_TAG}.status=${BUILD_STATUS}" ${COMMIT_FOR_CURRENT_STAGING}
 
 git push origin refs/notes/commits
 git push origin "refs/notes/*"
