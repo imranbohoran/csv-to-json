@@ -13,8 +13,6 @@ echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 curl --silent ${JOB_STATUS_URL} | grep '"result":"SUCCESS"' > /dev/null
 BUILD_STATUS_CODE=$?
 
-echo ${BUILD_STATUS_RESULT}
-
 echo "The build status is ${BUILD_STATUS_CODE}"
 if [[ ${BUILD_STATUS_CODE} -eq 0 ]];
 then
