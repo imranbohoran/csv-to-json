@@ -22,12 +22,13 @@ LATEST_RELEASE_NUMBER=$(git describe --abbrev=0 --match "release-*" | cut -d "-"
 let NEW_RELEASE_NUMBER=${LATEST_RELEASE_NUMBER}+1
 
 TAG_NAME=release-${NEW_RELEASE_NUMBER}
-
-LATEST_COMMIT=$(git rev-parse HEAD)
-
 echo "TAG to be created ${TAG_NAME}"
+
+WORKING_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+echo "The current working branch ${WORKING_BRANCH}"
+
 git tag -a ${TAG_NAME} ${LATEST_COMMIT} -m "Release candidate tag created on ${DATE}"
-git push --follow-tags
+git push orign HEAD:${WORKING_BRANCH} --follow-tags
 
 echo "Adding notes"
 git notes add -f -m "release.tag=${TAG_NAME}"
