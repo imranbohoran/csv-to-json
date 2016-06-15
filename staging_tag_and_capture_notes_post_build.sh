@@ -26,7 +26,7 @@ echo "Commit for release candidate ${COMMIT_FOR_CURRENT_STAGING}"
 
 echo "Appending notes"
 git checkout master
-git pull --rebase master
+git pull --rebase
 git fetch origin refs/notes/*:refs/notes/*
 
 git notes append -m "stage.${CURRENT_STAGING_TAG}.date=${BUILD_STATUS}" ${COMMIT_FOR_CURRENT_STAGING}

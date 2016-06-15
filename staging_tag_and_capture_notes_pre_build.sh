@@ -22,7 +22,7 @@ git push origin ${TAG_NAME}
 
 echo "Adding notes"
 git checkout master
-git pull --rebase master
+git pull --rebase
 git fetch origin refs/notes/*:refs/notes/*
 
 git notes append -m "stage.tag=${TAG_NAME}" ${COMMIT_FOR_RELEASE_CANDIDATE}
