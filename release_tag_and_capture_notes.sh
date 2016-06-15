@@ -24,6 +24,8 @@ git tag -a ${TAG_NAME} ${LATEST_COMMIT} -m "Release candidate tag created on ${D
 git push origin ${TAG_NAME}
 
 echo "Adding notes"
+git checkout master
+git pull --rebase
 git notes add -f -m "release.tag=${TAG_NAME}" ${LATEST_COMMIT}
 git notes append -m "release.${TAG_NAME}.date=${DATE}" ${LATEST_COMMIT}
 
