@@ -22,6 +22,7 @@ git push origin ${TAG_NAME}
 
 echo "Adding notes"
 git pull --rebase origin master
+git fetch origin refs/notes/*:refs/notes/*
 
 git notes append -m "stage.tag=${TAG_NAME}" ${COMMIT_FOR_RELEASE_CANDIDATE}
 git notes append -m "stage.${TAG_NAME}.date=${DATE}" ${COMMIT_FOR_RELEASE_CANDIDATE}
