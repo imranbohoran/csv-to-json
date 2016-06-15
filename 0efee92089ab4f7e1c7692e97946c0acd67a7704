@@ -1,0 +1,15 @@
+rc.tag=release-45
+
+rc.date=10/06/2016
+
+stage.tag=staging-45
+
+stage.date=10/06/2016
+
+stage.status=success
+
+prod.tag=production-45
+
+prod.date=10/06/2016
+
+prod.status=success

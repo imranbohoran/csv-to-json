@@ -1,0 +1,9 @@
+rc.tag=release-46
+
+rc.date=10/06/2016
+
+stage.tag=staging-46
+
+stage.date=10/06/2016
+
+stage.status=success

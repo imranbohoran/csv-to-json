@@ -1,0 +1,3 @@
+release.tag=release-$BUILD_NUMBER
+
+release.release-$BUILD_NUMBER.date=${DATE}
