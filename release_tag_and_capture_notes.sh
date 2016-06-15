@@ -30,7 +30,6 @@ WORKING_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "The current working branch ${WORKING_BRANCH}"
 
 git tag -a ${TAG_NAME} ${LATEST_COMMIT} -m "Release candidate tag created on ${DATE}"
-#git push origin HEAD:master --follow-tags
 git push origin ${TAG_NAME}
 
 echo "Adding notes"
