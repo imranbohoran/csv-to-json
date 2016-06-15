@@ -23,8 +23,11 @@ let NEW_RELEASE_NUMBER=${LATEST_RELEASE_NUMBER}+1
 
 TAG_NAME=release-${NEW_RELEASE_NUMBER}
 
+echo "TAG to be created ${TAG_NAME}"
 git tag -a ${TAG_NAME} -m "Release candidate tag created on ${DATE}"
+git push --follow-tags
 
+echo "Adding notes"
 git notes add -f -m "release.tag=${TAG_NAME}"
 git notes append -m "release.${TAG_NAME}.date=${DATE}"
 
