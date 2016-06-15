@@ -22,7 +22,7 @@ git push origin ${TAG_NAME}
 
 DATE=$(date +%Y-%m-%d:%H:%M:%S)
 
-echo "Adding notes"
+echo "Adding notes pre staging build"
 git checkout master
 git pull --rebase
 git fetch origin refs/notes/*:refs/notes/*

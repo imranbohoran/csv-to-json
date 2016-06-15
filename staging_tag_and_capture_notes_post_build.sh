@@ -27,7 +27,7 @@ CURRENT_STAGING_TAG=$(git describe --abbrev=0 --match "staging-*")
 COMMIT_FOR_CURRENT_STAGING=$(git rev-list -n 1 ${CURRENT_STAGING_TAG})
 echo "Commit for release candidate ${COMMIT_FOR_CURRENT_STAGING}"
 
-echo "Appending notes"
+echo "Appending notes for post staging build"
 git checkout master
 git pull --rebase
 git fetch origin refs/notes/*:refs/notes/*

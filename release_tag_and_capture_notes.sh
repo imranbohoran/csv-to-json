@@ -23,7 +23,7 @@ echo "TAG to be created ${TAG_NAME}"
 git tag -a ${TAG_NAME} ${LATEST_COMMIT} -m "Release candidate tag created on ${DATE}"
 git push origin ${TAG_NAME}
 
-echo "Adding notes"
+echo "Adding notes for release candidates"
 git checkout master
 git pull --rebase
 git fetch origin refs/notes/*:refs/notes/*
