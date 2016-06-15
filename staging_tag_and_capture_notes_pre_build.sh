@@ -20,6 +20,8 @@ echo "TAG to be created ${TAG_NAME}"
 git tag -a ${TAG_NAME} ${COMMIT_FOR_RELEASE_CANDIDATE} -m "Staging tag created on ${DATE}"
 git push origin ${TAG_NAME}
 
+DATE=$(date +%Y-%m-%d:%H:%M:%S)
+
 echo "Adding notes"
 git checkout master
 git pull --rebase
