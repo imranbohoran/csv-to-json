@@ -5,7 +5,7 @@ echo "Job url is ${JOB_URL}"
 JOB_STATUS_URL=${JOB_URL}/lastBuild/api/json
 echo "Job status url is ${JOB_STATUS_URL}"
 
-DATE=$(date +%Y-%m-%d)
+DATE=$(date +%Y-%m-%d:%H:%M:%S)
 
 curl --silent ${JOB_STATUS_URL} | grep result\":null > /dev/null
 BUILD_STATUS_CODE=$?
@@ -25,7 +25,6 @@ TAG_NAME=release-${NEW_RELEASE_NUMBER}
 
 echo "TAG to be created ${TAG_NAME}"
 git tag -a ${TAG_NAME} -m "Release candidate tag created on ${DATE}"
-git push --follow-tags
 
 echo "Adding notes"
 git notes add -f -m "release.tag=${TAG_NAME}"
