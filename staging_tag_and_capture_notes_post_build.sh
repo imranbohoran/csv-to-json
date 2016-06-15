@@ -9,10 +9,7 @@ echo "Job status url is ${JOB_STATUS_URL}"
 RELEASE_CANDIDATE_TAG=$2
 echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 
-JOB_DETAILS=$(curl --silent ${JOB_STATUS_URL})
-echo ${JOB_DETAILS}
-
-BUILD_STATUS_RESULT=$(echo ${JOB_DETAILS} | grep '"result":"SUCCESS"')
+curl --silent ${JOB_STATUS_URL} | grep '"result":"SUCCESS"' > /dev/null
 BUILD_STATUS_CODE=$?
 
 echo ${BUILD_STATUS_RESULT}
