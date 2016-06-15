@@ -2,6 +2,7 @@
 
 JOB_URL=$1
 echo "Job url is ${JOB_URL}"
+# Hardcoded for now, it should be based off the ${JOB_URL}
 JOB_STATUS_URL=http://localhost:8080/job/Deploy%20to%20Staging/lastBuild/api/json
 
 echo "Job status url is ${JOB_STATUS_URL}"
