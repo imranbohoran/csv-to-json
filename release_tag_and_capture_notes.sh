@@ -26,6 +26,8 @@ git push origin ${TAG_NAME}
 echo "Adding notes"
 git checkout master
 git pull --rebase
+git fetch origin refs/notes/*:refs/notes/*
+
 git notes add -f -m "release.tag=${TAG_NAME}" ${LATEST_COMMIT}
 git notes append -m "release.${TAG_NAME}.date=${DATE}" ${LATEST_COMMIT}
 
