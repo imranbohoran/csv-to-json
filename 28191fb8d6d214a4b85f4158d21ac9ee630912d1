@@ -11,3 +11,5 @@ stage.staging-62.status=success
 production.tag=production-2
 
 production.production-2.date=2016-06-16:15:04:53
+
+production.production-2.status=success
