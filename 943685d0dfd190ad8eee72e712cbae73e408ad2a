@@ -3,3 +3,5 @@ release.tag=release-87
 release.release-87.date=2016-06-16:08:53:59
 
 stage.tag=staging-60
+
+stage.staging-60.date=2016-06-16:13:06:14
