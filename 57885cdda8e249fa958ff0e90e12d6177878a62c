@@ -7,3 +7,5 @@ stage.tag=staging-61
 stage.staging-61.date=2016-06-16:14:53:19
 
 stage.staging-61.status=success
+
+production.tag=production-1
