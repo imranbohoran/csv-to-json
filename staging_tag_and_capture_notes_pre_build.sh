@@ -3,9 +3,14 @@
 RELEASE_CANDIDATE_TAG=$1
 echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 
+if [[ ${RELEASE_CANDIDATE_TAG} != release-* ]]
+then
+    echo "${RELEASE_CANDIDATE_TAG} is not a valid release candidate tag"
+    exit 1
+fi
+
 COMMIT_FOR_RELEASE_CANDIDATE=$(git rev-list -n 1 ${RELEASE_CANDIDATE_TAG})
 echo "Commit for release candidate ${COMMIT_FOR_RELEASE_CANDIDATE}"
-
 
 NEW_RELEASE_NUMBER=$(echo ${RELEASE_CANDIDATE_TAG} | cut -d "-" -f 2)
 
