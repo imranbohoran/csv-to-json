@@ -13,3 +13,5 @@ production.tag=production-95
 production.production-95.date=2016-06-17:09:41:18
 
 production.production-95.status=success
+
+stage.staging-95.status=failed
