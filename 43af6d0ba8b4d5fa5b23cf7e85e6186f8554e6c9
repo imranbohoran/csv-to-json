@@ -5,3 +5,5 @@ release.release-95.date=2016-06-17:09:38:38
 stage.tag=staging-95
 
 stage.staging-95.date=2016-06-17:09:39:33
+
+stage.staging-95.status=success
