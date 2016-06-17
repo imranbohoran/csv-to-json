@@ -6,13 +6,8 @@ echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 COMMIT_FOR_RELEASE_CANDIDATE=$(git rev-list -n 1 ${RELEASE_CANDIDATE_TAG})
 echo "Commit for release candidate ${COMMIT_FOR_RELEASE_CANDIDATE}"
 
-LATEST_RELEASE_NUMBER=$(git describe --abbrev=0 --match "staging-*" | cut -d "-" -f 2)
-number_regex='^[0-9]+$'
-if ! [[ ${LATEST_RELEASE_NUMBER} =~ $number_regex ]]; then
-   LATEST_RELEASE_NUMBER=0
-fi
 
-let NEW_RELEASE_NUMBER=${LATEST_RELEASE_NUMBER}+1
+LATEST_RELEASE_NUMBER=$(echo ${RELEASE_CANDIDATE_TAG} | cut -d "-" -f 2)
 
 TAG_NAME=staging-${NEW_RELEASE_NUMBER}
 echo "TAG to be created ${TAG_NAME}"
