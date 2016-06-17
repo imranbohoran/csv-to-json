@@ -9,8 +9,6 @@ echo "Commit for release candidate ${COMMIT_FOR_RELEASE_CANDIDATE}"
 
 LATEST_RELEASE_NUMBER=$(echo ${RELEASE_CANDIDATE_TAG} | cut -d "-" -f 2)
 
-let NEW_RELEASE_NUMBER=${LATEST_RELEASE_NUMBER}+1
-
 TAG_NAME=staging-${NEW_RELEASE_NUMBER}
 echo "TAG to be created ${TAG_NAME}"
 
