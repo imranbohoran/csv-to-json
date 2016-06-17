@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ./config.sh
+
 JOB_URL=$1
 echo "Job url is ${JOB_URL}"
 # Hardcoded for now, it should be based off the ${JOB_URL}
@@ -10,7 +12,7 @@ echo "Job status url is ${JOB_STATUS_URL}"
 RELEASE_CANDIDATE_TAG=$2
 echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 
-if [[ ${RELEASE_CANDIDATE_TAG} != release-* ]]
+if [[ ${RELEASE_CANDIDATE_TAG} != ${RELEASE_CANDIDATE_TAG_PREFIX}-* ]]
 then
     echo "${RELEASE_CANDIDATE_TAG} is not a valid release candidate tag"
     exit 1
@@ -27,7 +29,7 @@ else
     BUILD_STATUS=failed
 fi
 
-CURRENT_STAGING_TAG=$(git describe --abbrev=0 --match "staging-*")
+CURRENT_STAGING_TAG=$(git describe --abbrev=0 --match "${STAGING_TAG_PREFIX}-*")
 
 COMMIT_FOR_CURRENT_STAGING=$(git rev-list -n 1 ${CURRENT_STAGING_TAG})
 echo "Commit for release candidate ${COMMIT_FOR_CURRENT_STAGING}"

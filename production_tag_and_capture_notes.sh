@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ./config.sh
+
 JOB_URL=$1
 echo "Job url is ${JOB_URL}"
 # Hardcoded for now, it should be based off the ${JOB_URL}/lastBuild/api/json
@@ -7,12 +9,12 @@ JOB_STATUS_URL=http://localhost:8080/job/Deploy%20to%20Production/lastBuild/api/
 
 echo "Job status url is ${JOB_STATUS_URL}"
 
-RELEASE_STAGING_TAG=$2
-echo "The release staging tag ${RELEASE_STAGING_TAG}"
+STAGING_TAG=$2
+echo "The release staging tag ${STAGING_TAG}"
 
-if [[ ${RELEASE_STAGING_TAG} != staging-* ]]
+if [[ ${STAGING_TAG} != ${STAGING_TAG_PREFIX}-* ]]
 then
-    echo "${RELEASE_STAGING_TAG} is not a valid staging tag"
+    echo "${STAGING_TAG} is not a valid staging tag"
     exit 1
 fi
 
@@ -27,12 +29,12 @@ else
     BUILD_STATUS=failed
 fi
 
-COMMIT_FOR_RELEASE=$(git rev-list -n 1 ${RELEASE_STAGING_TAG})
+COMMIT_FOR_RELEASE=$(git rev-list -n 1 ${STAGING_TAG})
 echo "Commit for release ${COMMIT_FOR_RELEASE}"
 
-NEW_RELEASE_NUMBER=$(echo ${RELEASE_STAGING_TAG} | cut -d "-" -f 2)
+NEW_RELEASE_NUMBER=$(echo ${STAGING_TAG} | cut -d "-" -f 2)
 
-TAG_NAME=production-${NEW_RELEASE_NUMBER}
+TAG_NAME=${PRODUCTION_TAG_PREFIX}-${NEW_RELEASE_NUMBER}
 echo "TAG to be created ${TAG_NAME}"
 
 DATE=$(date +%Y-%m-%d:%H:%M:%S)
