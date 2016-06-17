@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ./config.sh
+
 JOB_URL=$1
 echo "Job url is ${JOB_URL}"
 JOB_STATUS_URL=${JOB_URL}/lastBuild/api/json
@@ -7,7 +9,7 @@ echo "Job status url is ${JOB_STATUS_URL}"
 
 DATE=$(date +%Y-%m-%d:%H:%M:%S)
 
-LATEST_RELEASE_NUMBER=$(git describe --abbrev=0 --match "release-*" | cut -d "-" -f 2)
+LATEST_RELEASE_NUMBER=$(git describe --abbrev=0 --match "${RELEASE_CANDIDATE_TAG_PREFIX}-*" | cut -d "-" -f 2)
 number_regex='^[0-9]+$'
 if ! [[ ${LATEST_RELEASE_NUMBER} =~ $number_regex ]]; then
    LATEST_RELEASE_NUMBER=0
@@ -17,7 +19,7 @@ let NEW_RELEASE_NUMBER=${LATEST_RELEASE_NUMBER}+1
 
 LATEST_COMMIT=$(git rev-parse origin/master^{commit})
 
-TAG_NAME=release-${NEW_RELEASE_NUMBER}
+TAG_NAME=${RELEASE_CANDIDATE_TAG_PREFIX}-${NEW_RELEASE_NUMBER}
 echo "TAG to be created ${TAG_NAME}"
 
 git tag -a ${TAG_NAME} ${LATEST_COMMIT} -m "Release candidate tag created on ${DATE}"
