@@ -24,7 +24,7 @@ fi
 COMMIT_FOR_RELEASE=$(git rev-list -n 1 ${RELEASE_STAGING_TAG})
 echo "Commit for release ${COMMIT_FOR_RELEASE}"
 
-LATEST_RELEASE_NUMBER=$(echo ${RELEASE_STAGING_TAG} | cut -d "-" -f 2)
+NEW_RELEASE_NUMBER=$(echo ${RELEASE_STAGING_TAG} | cut -d "-" -f 2)
 
 TAG_NAME=production-${NEW_RELEASE_NUMBER}
 echo "TAG to be created ${TAG_NAME}"
