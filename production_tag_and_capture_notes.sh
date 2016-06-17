@@ -4,8 +4,7 @@ source ./config.sh
 
 JOB_URL=$1
 echo "Job url is ${JOB_URL}"
-# Hardcoded for now, it should be based off the ${JOB_URL}/lastBuild/api/json
-JOB_STATUS_URL=http://localhost:8080/job/Deploy%20to%20Production/lastBuild/api/json
+JOB_STATUS_URL=${JOB_URL}/lastBuild/api/json
 
 echo "Job status url is ${JOB_STATUS_URL}"
 
