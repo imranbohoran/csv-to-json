@@ -24,13 +24,7 @@ fi
 COMMIT_FOR_RELEASE=$(git rev-list -n 1 ${RELEASE_STAGING_TAG})
 echo "Commit for release ${COMMIT_FOR_RELEASE}"
 
-LATEST_RELEASE_NUMBER=$(git describe --abbrev=0 --match "production-*" | cut -d "-" -f 2)
-number_regex='^[0-9]+$'
-if ! [[ ${LATEST_RELEASE_NUMBER} =~ $number_regex ]]; then
-   LATEST_RELEASE_NUMBER=0
-fi
-
-let NEW_RELEASE_NUMBER=${LATEST_RELEASE_NUMBER}+1
+LATEST_RELEASE_NUMBER=$(echo ${RELEASE_STAGING_TAG} | cut -d "-" -f 2)
 
 TAG_NAME=production-${NEW_RELEASE_NUMBER}
 echo "TAG to be created ${TAG_NAME}"
