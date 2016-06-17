@@ -10,6 +10,12 @@ echo "Job status url is ${JOB_STATUS_URL}"
 RELEASE_CANDIDATE_TAG=$2
 echo "The release candidate tag ${RELEASE_CANDIDATE_TAG}"
 
+if [[ ${RELEASE_CANDIDATE_TAG} != release-* ]]
+then
+    echo "${RELEASE_CANDIDATE_TAG} is not a valid release candidate tag"
+    exit 1
+fi
+
 curl --silent ${JOB_STATUS_URL} | grep '"result":"SUCCESS"' > /dev/null
 BUILD_STATUS_CODE=$?
 
