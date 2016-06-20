@@ -7,3 +7,5 @@ stage.tag=alpha_staging-4
 stage.alpha_staging-4.date=2016-06-20:13:08:36
 
 stage.alpha_staging-4.status=success
+
+production.tag=alpha_production-2
