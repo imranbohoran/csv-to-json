@@ -5,3 +5,5 @@ release.tag=alpha_release-6
 release.alpha_release-6.date=2016-07-22:12:23:59
 
 staging.tag=alpha_staging-6
+
+staging.alpha_staging-6.date=2016-07-22:12:24:47
