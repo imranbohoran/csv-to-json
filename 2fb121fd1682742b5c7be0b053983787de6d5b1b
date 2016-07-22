@@ -27,3 +27,5 @@ staging.tag=alpha_staging-6
 staging.alpha_staging-6.date=2016-07-22:12:31:37
 
 staging.alpha_staging-6.status=success
+
+staging.tag=alpha_staging-6
