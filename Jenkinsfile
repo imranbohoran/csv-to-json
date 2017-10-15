@@ -27,8 +27,10 @@ pipeline {
 
 
         stage ('approve') {
-            timeout(time: 7, unit: 'DAYS') {
-                input message: 'Do you want to deploy?', submitter: 'product-management'
+            steps {
+                timeout(time: 7, unit: 'DAYS') {
+                    input message: 'Do you want to deploy?', submitter: 'product-management'
+                }
             }
         }
 
