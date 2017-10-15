@@ -27,9 +27,7 @@ pipeline {
 
         stage ('Deploy') {
             steps {
-                if (BRANCH_NAME == "master") {
-                    sh 'echo This will be deployed'
-                }
+                sh 'echo This will be deployed'
             }
         }
     }
