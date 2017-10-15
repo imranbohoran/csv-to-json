@@ -40,7 +40,7 @@ pipeline {
         stage ('Deployment to production') {
             agent none
             when {
-                environment name:'approval_answer', value:"true"
+                environment name:'approval_answer', value:"yes"
             }
             steps {
                 sh 'echo This will be deployed'
