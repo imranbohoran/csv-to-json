@@ -25,6 +25,13 @@ pipeline {
             }
         }
 
+
+        stage ('approve') {
+            timeout(time: 7, unit: 'DAYS') {
+                input message: 'Do you want to deploy?', submitter: 'product-management'
+            }
+        }
+
         stage ('Deploy') {
             steps {
                 sh 'echo This will be deployed'
