@@ -25,5 +25,12 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            if (BRANCH_NAME == "master") {
+                echo "This will be deployed"
+            }
+        }
+    }
 }
 
