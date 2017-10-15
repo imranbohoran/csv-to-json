@@ -29,12 +29,15 @@ pipeline {
         stage ('approve') {
             steps {
                 timeout(time: 7, unit: 'DAYS') {
-                    input message: 'Do you want to deploy?', submitter: 'product-management'
+                    input message: 'Do you want to continue', ok: 'Yes', parameters: [booleanParam(defaultValue: false, description: '', name: 'answer')], submitterParameter: 'approver'
                 }
             }
         }
 
-        stage ('Deploy') {
+        stage ('Post-Approval') {
+            when {
+                answer true
+            }
             steps {
                 sh 'echo This will be deployed'
             }
