@@ -36,7 +36,7 @@ pipeline {
 
         stage ('Post-Approval') {
             when {
-                answer true
+                'answer' true
             }
             steps {
                 sh 'echo This will be deployed'
