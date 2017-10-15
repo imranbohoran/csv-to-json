@@ -29,7 +29,6 @@ pipeline {
         stage('Decide to deploy') {
             agent none
             steps {
-                checkpoint 'Build is successful and ready to deploy'
                 script {
                     env.DEPLOY_TO_MOB_TEST = input message: 'Approval required',
                             submitter: 'authenticated',
