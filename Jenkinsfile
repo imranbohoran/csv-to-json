@@ -24,11 +24,10 @@ pipeline {
                 }
             }
         }
-    }
-    post {
-        success {
+
+        stage ('Deploy') {
             if (BRANCH_NAME == "master") {
-                echo "This will be deployed"
+                sh 'echo This will be deployed'
             }
         }
     }
