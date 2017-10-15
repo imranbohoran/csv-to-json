@@ -29,14 +29,14 @@ pipeline {
         stage ('approve') {
             steps {
                 timeout(time: 7, unit: 'DAYS') {
-                    env.approval_answer = input message: 'Do you want to continue', ok: 'Yes', parameters: [booleanParam(defaultValue: false, description: '', name: 'answer')], submitterParameter: 'approver'
+                    env.approval_answer = input message: 'Do you want to continue', ok: 'Yes', parameters: [booleanParam(defaultValue: false, description: '', name: 'answer')]
                 }
             }
         }
 
         stage ('Post-Approval') {
             when {
-                environment name:'approval_answer', value:true
+                environment name:'approval_answer', value:"true"
             }
             steps {
                 sh 'echo This will be deployed'
