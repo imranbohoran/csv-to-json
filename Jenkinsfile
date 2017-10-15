@@ -38,7 +38,7 @@ pipeline {
         }
 
         stage ('Deployment to production') {
-            agent {label 'prod-deploy'}
+            agent none
             when {
                 environment name:'approval_answer', value:"true"
             }
