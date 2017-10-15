@@ -26,15 +26,20 @@ pipeline {
         }
 
 
-        stage ('approve') {
+        stage('Decide to deploy') {
+            agent none
             steps {
-                timeout(time: 7, unit: 'DAYS') {
-                    env.approval_answer = input message: 'Do you want to continue', ok: 'Yes', parameters: [booleanParam(defaultValue: false, description: '', name: 'answer')]
+                checkpoint 'Build is successful and ready to deploy'
+                script {
+                    env.DEPLOY_TO_MOB_TEST = input message: 'Approval required',
+                            submitter: 'authenticated',
+                            parameters: [choice(name: 'Deploy to production', choices: 'no\nyes', description: 'Choose "yes" if you want to deploy to production')]
                 }
             }
         }
 
-        stage ('Post-Approval') {
+        stage ('Deployment to production') {
+            agent {label 'prod-deploy'}
             when {
                 environment name:'approval_answer', value:"true"
             }
